@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Happy Valentine ❤️</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Arial', sans-serif;
+      background: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
+      url("bg.jpeg") center/cover no-repeat;
+      color: #fff;
+      text-align: center;
+      padding: 40px;
+    }
+    h1 {
+      font-size: 3em;
+    }
+    .card {
+      background: rgba(255,255,255,0.2);
+      padding: 30px;
+      border-radius: 20px;
+      max-width: 500px;
+      margin: auto;
+    }
+    button {
+      background: #ff4d6d;
+      border: none;
+      color: white;
+      padding: 15px 25px;
+      font-size: 1.1em;
+      border-radius: 30px;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+    button:hover {
+      background: #ff1e4d;
+    }
+  </style>
+</head>
+<body>
+
+<audio id="bgMusic" loop>
+  <source src="birds.mp3" type="audio/mpeg">
+</audio>
+
+
+  <div class="card">
+    <h1>Happy Valentine 💘</h1>
+    <p>
+      To my favorite person,<br><br>
+      You make my days brighter, my heart fuller,
+      and my life happier just by being in it.
+    </p>
+
+    <button onclick="startTypewriter()">Click me ❤️</button>   
+    <p id="message"></p>
+  </div>
+
+  <script>
+  const text = `From the first kiss—nervous, gentle, a little skeptical, and shocking —
+the world seemed to slow,
+as if it knew that moment mattered,
+as if it was quietly making space just for us.
+
+In your hugs, I found more than comfort;
+I found a place where my thoughts soften,
+where my heart rests without fear,
+where being held by you feels like being understood.
+
+And every day, I realize how fortunate I am—
+to be loved by you,
+to choose you,
+to hold you close with infinite love and affection,
+grateful beyond words that you are mine.
+
+~ Your Amor 🎀`;
+
+  let index = 0;
+  const speed = 35; // typing speed (lower = faster)
+
+  function startTypewriter() {
+    document.getElementById("bgMusic").play();
+    document.querySelector("button").disabled = true;
+    document.getElementById("message").innerHTML = "";
+    typeWriter();
+  }
+
+  function typeWriter() {
+    if (index < text.length) {
+      document.getElementById("message").innerHTML +=
+        text.charAt(index) === "\n" ? "<br>" : text.charAt(index);
+      index++;
+      setTimeout(typeWriter, speed);
+    }
+  }
+</script>
+
+</body>
+</html>
